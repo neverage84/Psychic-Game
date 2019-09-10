@@ -25,10 +25,37 @@
 <h1>The Psychic Game</h1>
 <br>
 <p>Guess what letter I'm thinking of</p>
-<p class="wins">Wins:</p>
-<p class="losses">Losses:</p>
-<p class="guesses">Guess Left:</p>
-<p class="guessesfar">Your Guesses so far:</p>
+<p id="wins-text">Wins:</p>
+<p id="losses-text">Losses:</p>
+<p id="guesses-text">Guess Left:</p>
+<p id="guesses-total-text">Your Guesses so far:</p>
+
+<script type="text/javascript">
+//Create variables for wins, losses, guesses, and guess counter
+var wins = 0;
+var losses = 0;
+var guessesleft = 9;
+var counter = 0;
+
+//Create variables that will go to areas in the paragraph
+var winsText = document.getElementById("wins-text");
+var lossesText = document.getElementById("losses-text");
+var guessesText = document.getElementById("guesses-text");
+var guessesTotalText = document.getElementById("guesses-total-text");
+
+//Whenver the user presses a key enter game
+
+document.onkeyup = function(event) {
+    // Determine user guess
+    var userGuess = event.key;
+
+    //Function loop for 9 guesses
+    for
+}
+
+
+
+</script>
 
 
 </body>
