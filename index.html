@@ -24,39 +24,66 @@
     <!--Now for my  code-->
 <h1>The Psychic Game</h1>
 <br>
-<p>Guess what letter I'm thinking of</p>
-<p id="wins-text">Wins:</p>
-<p id="losses-text">Losses:</p>
-<p id="guesses-text">Guess Left:</p>
-<p id="guesses-total-text">Your Guesses so far:</p>
+<p>Guess what letter I'm thinking of (Press a letter key to start)</p>
+<p id="wins-text"></p>
+<p id="losses-text"></p>
+<p id="guesses-text"></p>
+<p id="guesses-total-text"></p>
 
-<script type="text/javascript">
-//Create variables for wins, losses, guesses, and guess counter
+<script text="text/javascript">
+   
+//Create variables for wins, losses, guesses, and guess counter//
+
 var wins = 0;
 var losses = 0;
 var guessesleft = 9;
 var counter = 0;
+var computerguess = "";
+var char_list = "abcdefghijklmnopqrstuvwxyz";
 
 //Create variables that will go to areas in the paragraph
 var winsText = document.getElementById("wins-text");
 var lossesText = document.getElementById("losses-text");
 var guessesText = document.getElementById("guesses-text");
 var guessesTotalText = document.getElementById("guesses-total-text");
+var guessArray = [];
 
-//Whenver the user presses a key enter game
+
+
+
+ 
+ //Whenever the user presses a key enter game       
 
 document.onkeyup = function(event) {
-    // Determine user guess
-    var userGuess = event.key;
+    userGuess = event.key;
+    computerguess = char_list.charAt(Math.floor(Math.random() * char_list.length));
+    
+            if (userGuess === computerguess) {
+                wins++;
+            }
+            else losses++;
+            counter++;
+            guessesleft -= 1;
+            guessArray.push(userGuess);
 
-    //Function loop for 9 guesses
-    for
-}
 
+        
+        winsText.textContent = "Wins: " + wins;
+        lossesText.textContent = "Losses: " + losses;
+        guessesText.textContent =  "Guesses Left:" + guessesleft;
+        guessesTotalText.textContent = "Your Guesses so  far:" + guessArray;
+    
+    if (guessesleft === 0){
+        wins = 0;
+        losses = 0;
+        guessesleft = 9;
+        guessArray = [];
 
-
+    }
+    
+   
+    }
 </script>
-
 
 </body>
 </html>
