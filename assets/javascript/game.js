@@ -9,12 +9,6 @@ var guessesleft = 9;
 var counter = 0;
 var computerguess = "";
 var char_list = "abcdefghijklmnopqrstuvwxyz";
-
-//Create variables that will go to areas in the paragraph
-var winsText = document.getElementById("wins-text");
-var lossesText = document.getElementById("losses-text");
-var guessesText = document.getElementById("guesses-text");
-var guessesTotalText = document.getElementById("guesses-total-text");
 var guessArray = [];
 
 
@@ -27,28 +21,31 @@ document.onkeyup = function(event) {
     userGuess = event.key;
     if (guessesleft === 9) {
         computerguess = char_list.charAt(Math.floor(Math.random() * char_list.length));
+        
     }
     
             if (userGuess === computerguess) {
                 wins++;
+                guessesleft = 9;
+                guessArray = [];
             }
-            else losses++;
+            else {
             counter++;
             guessesleft --;
             guessArray.push(userGuess);
-
+            }
 
         
-        winsText.textContent = "Wins: " + wins;
-        lossesText.textContent = "Losses: " + losses;
-        guessesText.textContent =  "Guesses Left:" + guessesleft;
-        guessesTotalText.textContent = "Your Guesses so  far:" + guessArray;
+        document.querySelector("#wins-text").innerHTML = "Wins: " + wins;
+        document.querySelector("#losses-text").innerHTML = "Losses: " + losses;
+        document.querySelector("#guesses-text").innerHTML = "Guesses Left:" + guessesleft;
+        document.querySelector("#guesses-total-text").innerHTML = "Your Guesses so far:" + guessArray;
     
     if (guessesleft === 0){
-        wins = 0;
-        losses = 0;
+        losses++;
         guessesleft = 9;
         guessArray = [];
+       
 
     }
     
