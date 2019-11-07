@@ -25,14 +25,16 @@ var guessArray = [];
 
 document.onkeyup = function(event) {
     userGuess = event.key;
-    computerguess = char_list.charAt(Math.floor(Math.random() * char_list.length));
+    if (guessesleft === 9) {
+        computerguess = char_list.charAt(Math.floor(Math.random() * char_list.length));
+    }
     
             if (userGuess === computerguess) {
                 wins++;
             }
             else losses++;
             counter++;
-            guessesleft -= 1;
+            guessesleft --;
             guessArray.push(userGuess);
 
 
